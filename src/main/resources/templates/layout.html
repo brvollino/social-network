@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <title th:text="#{app.title}"></title>
+  </head>
+  <body>
+    <nav class="navbar navbar-static-top navbar-custom" role="navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="/">
+            <span class="glyphicon glyphicon-home navbar-logo" aria-hidden="true"></span>
+          </a>
+          <a href="/">
+            <span th:text="#{app.title}"></span>
+          </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/logout" th:text="#{login.logout}"></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container" layout:fragment="content">
+    </div>
+    <div class="bottom-space clearfix"></div>
+  </body>
+</html>
