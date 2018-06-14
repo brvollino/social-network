@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+        <title th:text="#{app.title}"></title>
+    </head>
+    <body>
+      <div class="background">
+        <div class="text-center login-box" >
+          <div class="cover-header">
+            <h1 th:text="#{app.title}"></h1>
+            <p class="lead" th:text="#{login.subtitle}"></p>
+          </div>
+
+          <span th:if="${param.error}" class="label label-lg label-danger" th:text="#{login.invalid.credentials}"></span>
+          <span th:if="${param.logout}" class="label label-lg label-success" th:text="#{login.logged.out}"></span>
+
+          <form class="form-signin" id="loginForm" name="loginForm" method="POST" action="/login">
+            <label for="username" class="sr-only" th:text="#{login.username}"></label>
+            <input type="username" id="username" name="username" class="form-control" placeholder="Username" required="" autofocus=""/>
+
+            <label for="password" class="sr-only" th:text="#{login.password}"></label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required=""/>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{login.login}"></button>
+          </form>
+            <a href="create-account" class="btn btn-lg btn-secondary btn-block" type="button" th:text="#{login.createAccount}"></a>
+        </div>
+      </div>
+  </body>
+</html>

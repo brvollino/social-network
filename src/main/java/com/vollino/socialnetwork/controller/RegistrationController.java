@@ -19,7 +19,9 @@ public class RegistrationController {
     }
 
     @RequestMapping(path = "/register", method = RequestMethod.POST)
-    public void register(@ModelAttribute("user") User user) {
+    public String register(@ModelAttribute("user") User user) {
         userService.save(user);
+
+        return "redirect:/login";
     }
 }
