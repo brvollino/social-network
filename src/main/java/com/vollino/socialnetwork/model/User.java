@@ -1,5 +1,7 @@
 package com.vollino.socialnetwork.model;
 
+import com.google.common.base.MoreObjects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -75,7 +77,16 @@ public class User {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(getUsername(), getName(), getEmail(), getPassword());
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("username", username)
+                .add("name", name)
+                .add("email", email)
+                .add("password", password)
+                .toString();
     }
 }

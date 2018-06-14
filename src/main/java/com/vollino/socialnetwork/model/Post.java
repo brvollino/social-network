@@ -1,9 +1,8 @@
 package com.vollino.socialnetwork.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import com.google.common.base.MoreObjects;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
@@ -14,6 +13,7 @@ import java.util.Objects;
 public class Post {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     @ManyToOne(optional = false)
@@ -24,6 +24,9 @@ public class Post {
 
     @Column(nullable = false)
     private String text;
+
+    public Post() {
+    }
 
     public Post(Long id, User user, Date creationDate, String text) {
         this.id = id;
@@ -79,5 +82,15 @@ public class Post {
     public int hashCode() {
 
         return Objects.hash(getId(), getUser(), getCreationDate(), getText());
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("id", id)
+                .add("user", user)
+                .add("creationDate", creationDate)
+                .add("text", text)
+                .toString();
     }
 }
