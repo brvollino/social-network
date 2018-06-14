@@ -1,0 +1,47 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.0.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.13.RELEASE")
+	}
+}
+
+apply plugin: 'spring-boot'
+apply plugin: 'idea'
+apply from: 'java.gradle'
+
+group = 'com.vollino'
+version = '0.0.1-SNAPSHOT'
+description = "The social network"
+
+jar {
+    baseName = 'social-network'
+    version = '0.0.1-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+	compile 'org.springframework.boot:spring-boot-starter-web'
+	compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+	compile "org.springframework.boot:spring-boot-devtools"
+    compile 'com.google.guava:guava:24.1.1-jre'
+    runtime 'com.h2database:h2'
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'junit:junit:4.12'
+	testCompile 'eu.codearte.catch-exception:catch-exception:1.4.4'
+	testCompile 'org.hamcrest:java-hamcrest:2.0.0.0'
+	testCompile 'org.mockito:mockito-core:1.10.19'
+}
