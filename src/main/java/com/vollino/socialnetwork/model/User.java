@@ -3,9 +3,6 @@ package com.vollino.socialnetwork.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Entity   
@@ -13,6 +10,9 @@ public class User {
 
     @Id
     private String username;
+
+    @Column(nullable = false)
+    private String name;
 
     @Column(unique=true, nullable = false)
     private String email;
@@ -23,8 +23,9 @@ public class User {
     private User(){
     }
 
-    public User(String username, String email, String password) {
+    public User(String username, String name, String email, String password) {
         this.username = username;
+        this.name = name;
         this.email = email;
         this.password = password;
     }
@@ -35,6 +36,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setEmail(String email){
@@ -59,6 +68,7 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return Objects.equals(getUsername(), user.getUsername()) &&
+                Objects.equals(getName(), user.getName()) &&
                 Objects.equals(getEmail(), user.getEmail()) &&
                 Objects.equals(getPassword(), user.getPassword());
     }
@@ -66,6 +76,6 @@ public class User {
     @Override
     public int hashCode() {
 
-        return Objects.hash(getUsername(), getEmail(), getPassword());
+        return Objects.hash(getUsername(), getName(), getEmail(), getPassword());
     }
 }
