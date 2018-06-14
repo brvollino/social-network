@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <title th:text="#{app.title}"></title>
+</head>
+<body>
+<div class="background">
+    <div class="text-center login-box">
+        <div class="cover-header">
+            <h1 th:text="#{register.title}"></h1>
+        </div>
+
+        <form class="form-signin" id="registrationForm" name="registrationForm" method="POST" action="/register" modelAttribute="user">
+            <label for="username" class="sr-only" th:text="#{user.username}"></label>
+            <input type="username" id="username" name="username" class="form-control" placeholder="Username" required=""
+                   autofocus=""/>
+
+            <label for="name" class="sr-only" th:text="#{user.name}"></label>
+            <input type="name" id="name" name="email" class="form-control" placeholder="Name" required=""
+                   autofocus=""/>
+
+            <label for="email" class="sr-only" th:text="#{user.email}"></label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required=""
+                   autofocus=""/>
+
+            <label for="password" class="sr-only" th:text="#{user.password}"></label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                   required=""/>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{register.create}"></button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
