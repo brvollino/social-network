@@ -15,11 +15,11 @@
 
         <form class="form-signin" id="registrationForm" name="registrationForm" method="POST" action="/register" modelAttribute="user">
             <label for="username" class="sr-only" th:text="#{user.username}"></label>
-            <input type="username" id="username" name="username" class="form-control" placeholder="Username" required=""
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required=""
                    autofocus=""/>
 
             <label for="name" class="sr-only" th:text="#{user.name}"></label>
-            <input type="name" id="name" name="email" class="form-control" placeholder="Name" required=""
+            <input type="text" id="name" name="name" class="form-control" placeholder="Name" required=""
                    autofocus=""/>
 
             <label for="email" class="sr-only" th:text="#{user.email}"></label>
